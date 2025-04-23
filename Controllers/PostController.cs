@@ -6,9 +6,11 @@ using BlogAPI.Models;
 using System.Text.Json.Serialization;
 using BlogAPI.Helper;
 using BlogAPI.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TefaTodoList.Controllers;
 
+[Authorize]
 [Route("api/posts")]
 [ApiController]
 public class PostsController : ControllerBase
@@ -47,6 +49,7 @@ public class PostsController : ControllerBase
        return ApiResponse.Success( post);
    }
    [HttpPut("{id}")]
+   [Authorize(Roles = "superadmin, admin")]
    public async Task<IActionResult> PutPosts(int id, PostsDTO PostsDTO)
    {
        var existingPosts = await db.Posts.FindAsync(id);
@@ -77,6 +80,8 @@ public class PostsController : ControllerBase
        }
    }
    [HttpPost]
+    [Authorize(Roles = "admin")]
+
    public async Task<ActionResult<Posts>> PostPosts(PostsDTO PostsDTO)
    {
         var existingPost = await db.Posts
