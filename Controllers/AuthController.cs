@@ -34,10 +34,14 @@ public class AuthController : ControllerBase
         var result = await _userManager.CreateAsync(user, dto.Password);
 
         if (result.Succeeded)
-            {await _userManager.AddToRoleAsync(user, "user");
-            return Ok("Registrasi berhasil");}
+            {
+                await _userManager.AddToRoleAsync(user, "user");
+                return Ok("Registrasi berhasil");
+                }
         else
-            {return BadRequest(result.Errors);}
+            {
+                return BadRequest(result.Errors);
+            }
     }
 
     [HttpPost("login")]

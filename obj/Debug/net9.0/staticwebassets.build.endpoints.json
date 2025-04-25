@@ -1,5 +1,88 @@
 {
   "Version": 1,
   "ManifestType": "Build",
-  "Endpoints": []
+  "Endpoints": [
+    {
+      "Route": "uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.pdf",
+      "AssetFile": "uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92006"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WmObVY6GGyn9uXNsizEYH83kYL7FnmMXcz+TT7yXDUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 25 Apr 2025 04:14:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WmObVY6GGyn9uXNsizEYH83kYL7FnmMXcz+TT7yXDUk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.yhqqgtb1zz.pdf",
+      "AssetFile": "uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92006"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WmObVY6GGyn9uXNsizEYH83kYL7FnmMXcz+TT7yXDUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 25 Apr 2025 04:14:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yhqqgtb1zz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WmObVY6GGyn9uXNsizEYH83kYL7FnmMXcz+TT7yXDUk="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.pdf"
+        }
+      ]
+    }
+  ]
 }

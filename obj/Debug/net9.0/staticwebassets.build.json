@@ -1,12 +1,125 @@
 {
   "Version": 1,
-  "Hash": "BSm+F3DVwvqnwRQCEpQSO8uZS5tM03ej8onbXXRnKZI=",
+  "Hash": "Ay+oDXouuexynM+MyZrKFCYt6rdVWw34wX5/m28wiPU=",
   "Source": "BlogAPI",
   "BasePath": "_content/BlogAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "BlogAPI/wwwroot",
+      "Source": "BlogAPI",
+      "ContentRoot": "/home/leonardusreka/Documents/projects/BlogAPI/wwwroot/",
+      "BasePath": "_content/BlogAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/leonardusreka/Documents/projects/BlogAPI/wwwroot/uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.pdf",
+      "SourceId": "BlogAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/leonardusreka/Documents/projects/BlogAPI/wwwroot/",
+      "BasePath": "_content/BlogAPI",
+      "RelativePath": "uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yhqqgtb1zz",
+      "Integrity": "WmObVY6GGyn9uXNsizEYH83kYL7FnmMXcz+TT7yXDUk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.pdf"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.pdf",
+      "AssetFile": "/home/leonardusreka/Documents/projects/BlogAPI/wwwroot/uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92006"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WmObVY6GGyn9uXNsizEYH83kYL7FnmMXcz+TT7yXDUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 25 Apr 2025 04:14:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WmObVY6GGyn9uXNsizEYH83kYL7FnmMXcz+TT7yXDUk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.yhqqgtb1zz.pdf",
+      "AssetFile": "/home/leonardusreka/Documents/projects/BlogAPI/wwwroot/uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92006"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WmObVY6GGyn9uXNsizEYH83kYL7FnmMXcz+TT7yXDUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 25 Apr 2025 04:14:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yhqqgtb1zz"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/posts/623f218e-1313-4f03-840e-7ff9a4953f66.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WmObVY6GGyn9uXNsizEYH83kYL7FnmMXcz+TT7yXDUk="
+        }
+      ]
+    }
+  ]
 }

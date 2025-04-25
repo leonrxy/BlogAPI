@@ -11,6 +11,8 @@ namespace BlogAPI.Models
         public string Slug { get; set; }
         public string? Title { get; set; }
         public string? Content { get; set; }
+        public string? CoverImagePath { get; set; }
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
