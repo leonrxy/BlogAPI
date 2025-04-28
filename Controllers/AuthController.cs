@@ -20,6 +20,46 @@ public class AuthController : ControllerBase
         _config = config;
     }
 
+    [HttpGet("me")]
+    [Authorize]
+    public async Task<ActionResult> GetLoggedInUser()
+    {
+        
+        foreach (var claim in User.Claims)
+        {
+            Console.WriteLine($"Claim Type: {claim.Type}, Claim Value: {claim.Value}");
+        }
+
+        // Mendapatkan userId dari klaim (claims) yang ada di HttpContext
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (string.IsNullOrEmpty(userId))
+        {
+            return Unauthorized("User is not authenticated.");
+        }
+
+        // Mencari user berdasarkan userId
+        var user = await _userManager.FindByIdAsync(userId);
+
+        if (user == null)
+        {
+            return NotFound("User not found.");
+        }
+
+        // Mendapatkan daftar role dari pengguna
+        var roles = await _userManager.GetRolesAsync(user);
+
+        // Mengembalikan informasi pengguna beserta role-nya
+        return Ok(new
+        {
+            user.UserName,
+            user.Email,
+            user.FullName,
+            Roles = roles // Menambahkan roles ke response
+        });
+    }
+
+
     [HttpPost("register")]
     [AllowAnonymous]
     public async Task<IActionResult> Register(RegisterDto dto)
@@ -28,20 +68,20 @@ public class AuthController : ControllerBase
         {
             UserName = dto.Username,
             Email = dto.Email,
-            FullName = dto.FullName 
+            FullName = dto.full_name
         };
 
         var result = await _userManager.CreateAsync(user, dto.Password);
 
         if (result.Succeeded)
-            {
-                await _userManager.AddToRoleAsync(user, "user");
-                return Ok("Registrasi berhasil");
-                }
+        {
+            await _userManager.AddToRoleAsync(user, "user");
+            return Ok("Registrasi berhasil");
+        }
         else
-            {
-                return BadRequest(result.Errors);
-            }
+        {
+            return BadRequest(result.Errors);
+        }
     }
 
     [HttpPost("login")]
@@ -66,7 +106,7 @@ public class AuthController : ControllerBase
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+            // new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
             new Claim(ClaimTypes.NameIdentifier, user.Id),
             new Claim(ClaimTypes.Email, user.Email),
             new Claim(ClaimTypes.Role, string.Join(",", _userManager.GetRolesAsync(user).Result)),

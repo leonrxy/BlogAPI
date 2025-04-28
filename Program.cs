@@ -8,10 +8,15 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using BlogAPI.Seeders;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
+;
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -46,9 +51,19 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-builder.Services.AddIdentity<Users, IdentityRole>()
+builder.Services.AddIdentity<Users, IdentityRole>(options =>
+    {
+        // Atur kebijakan password sesuai dengan yang diinginkan
+        options.Password.RequireDigit = true; // Memerlukan angka
+        options.Password.RequireLowercase = true; // Memerlukan huruf kecil
+        options.Password.RequireUppercase = false; // Tidak memerlukan huruf besar
+        options.Password.RequireNonAlphanumeric = false; // Tidak memerlukan karakter non-alphanumeric (seperti simbol)
+        options.Password.RequiredLength = 8; // Minimal panjang password 8 karakter
+        // options.Password.RequiredUniqueChars = 1; // Memerlukan setidaknya 1 karakter unik
+    })
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
+
 
 var jwt = builder.Configuration.GetSection("JwtSettings");
 var key = Encoding.UTF8.GetBytes(jwt["Key"]);

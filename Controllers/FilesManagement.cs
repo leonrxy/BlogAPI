@@ -3,19 +3,19 @@ using BlogAPI.Helper;
 
 namespace TefaTodoList.Controllers
 {
-    [Route("api/file")]
+    [Route("api/files")]
     [ApiController]
     public class FilesManagementController : ControllerBase
     {
-        [HttpGet("{*fileName}")]
-        public IActionResult GetFile(string fileName, [FromQuery] bool download = false)
+        [HttpGet("{*pathFile}")]
+        public IActionResult GetFile(string pathFile, [FromQuery] bool download = false)
         {
             // Tentukan path volume Docker tempat file disimpan
             var uploadsFolder =
                 "wwwroot"; // Sesuaikan dengan path volume Docker kamu
 
             // Gabungkan path dengan nama file untuk mendapatkan lokasi file
-            var decodedFileName = Uri.UnescapeDataString(fileName);
+            var decodedFileName = Uri.UnescapeDataString(pathFile);
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), uploadsFolder, decodedFileName);
             
             // Cek apakah file ada
@@ -28,7 +28,7 @@ namespace TefaTodoList.Controllers
             var fileBytes = System.IO.File.ReadAllBytes(filePath);
 
             // Dapatkan extension file untuk menentukan content type
-            var fileExtension = Path.GetExtension(fileName).ToLowerInvariant();
+            var fileExtension = Path.GetExtension(pathFile).ToLowerInvariant();
             string contentType = fileExtension switch
             {
                 ".jpg" => "image/jpeg",
